@@ -27,6 +27,7 @@ LList.prototype.insert = function(newData, item){
     current.next = newNode;
 };
 
+//this adds a node to the end of the linkedlist
 LList.prototype.add = function(data){
     var newNode = new Node(data);
     var currNode = this.head;
