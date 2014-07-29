@@ -1,6 +1,13 @@
 //This is an example of a HashTable with a simple Hash Function and a Linked List for collisions.
 //Values are distributed more uniformly in a hash table if the size of the table is a prime number.
 
+"use strict";
+
+var Node = function(value) {
+  this.value = value;
+  this.next = null;
+};
+
 var LinkedList = function() {
   this.head = null;
   this.tail = null;
@@ -10,11 +17,6 @@ var LinkedList = function() {
     if (this.tail !== null) { this.tail.next = node; }
     this.tail = node;
   };
-};
-
-var Node = function(value) {
-  this.value = value;
-  this.next = null;
 };
 
 var HashTable = function(max) {
@@ -37,8 +39,8 @@ var HashTable = function(max) {
 };
 
 var hash = new HashTable(5);
-hash.add('i');
-hash.add('would');
-hash.add('like');
-hash.add('a');
-hash.add('coffee');
+hash.add("I");
+hash.add("would");
+hash.add("like");
+hash.add("a");
+hash.add("coffee");

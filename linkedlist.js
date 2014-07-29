@@ -1,6 +1,7 @@
 //This is an example of a LinkedList constructor and how to use it to
 //implement to check if a LinkedList is a palindrome.
 
+"use strict";
 var Node = function(data){
     this.data = data;
     this.next = null;
