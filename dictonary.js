@@ -15,8 +15,9 @@ Dictionary.prototype.contains = function(name) {
   return Object.prototype.hasOwnProperty.call(this.values, name) &&
   Object.prototype.propertyIsEnumerable.call(this.values, name);
 };
+//There's an issue where with forEachIn as descried by EloquentJS
 Dictionary.prototype.each = function(action) {
-  this.each(this.values, action);
+  (this.values, action).each;
 };
 
 var definitions = new Dictionary({cat: "feline",
@@ -24,9 +25,9 @@ var definitions = new Dictionary({cat: "feline",
   lizard: "reptile"});
 
 
-console.log(definitions.contains("cat"));
-console.log(definitions.contains("constructor"));
+console.log(definitions.contains("cat")); //True
+console.log(definitions.contains("constructor")); //False
 
-definitions.each(function(name, colour) {
-  console.log(name, " is ", colour);
+definitions.each(function(name, genus) {
+  console.log(name, " is ", genus);
 });
