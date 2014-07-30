@@ -16,7 +16,7 @@ console.log(fibonaci(10));
 
 
 //returning and storing the sequence in the function as a variable.
-var fibonaci = (function (length) {
+var fibonaci = (function () {
   var fib = [];
   fib[0] = 0;
   fib[1] = 1;
