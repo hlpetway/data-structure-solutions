@@ -38,12 +38,15 @@ var insert = function(data){
   }
 };
 
+var nodeArray = [];
+
 var inOrder = function(node){
   if(node !== null){
     inOrder(node.left);
-    console.log(node.data + " ");
+    nodeArray.push(node.data);
     inOrder(node.right);
   }
+  return nodeArray;
 };
 
 var nums = new BST();
@@ -55,4 +58,4 @@ nums.insert(3);
 nums.insert(99);
 nums.insert(22);
 console.log("Inorder traversal: ");
-inOrder(nums.root);
+console.log(inOrder(nums.root));
