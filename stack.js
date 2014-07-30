@@ -1,3 +1,6 @@
+// This is the solution to the problem of how to sort a stack in ascending
+// order only using one additional stack and a temporary variable.
+
 var isEmpty = function (stack){
     if(stack.length <= 0){
         return true;
