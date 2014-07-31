@@ -1,5 +1,6 @@
-//This is an example of a HashTable with a simple Hash Function and a Linked List for collisions.
-//Values are distributed more uniformly in a hash table if the size of the table is a prime number.
+// This is an example of a HashTable with a simple Hash Function
+// and a Linked List for collisions. Values are distributed more
+// uniformly in a hash table if the size of the table is a prime number.
 
 "use strict";
 

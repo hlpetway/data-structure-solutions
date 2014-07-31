@@ -15,7 +15,7 @@ var fibonaci = function (length) {
 console.log(fibonaci(10));
 
 
-//returning and storing the sequence in the function as a variable.
+//using an immediately invoked function to store the sequence in variable
 var fibonaci = (function () {
   var fib = [];
   fib[0] = 0;
@@ -30,6 +30,7 @@ var fibonaci = (function () {
 console.log(fibonaci);
 
 
+// Generating the Fibonacci sequence using memoize
 var fibonacci = (function() {
   var memo = {};
 

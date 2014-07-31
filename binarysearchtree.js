@@ -1,3 +1,5 @@
+// This is an exampe of a Binary Search Tree
+// with inorder traversal.
 
 "use strict";
 var Node = function (data, left, right){
