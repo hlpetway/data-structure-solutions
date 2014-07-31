@@ -11,7 +11,3 @@ var close = (function () {
 })();
 
 close();
-
-var arr4 = [];
-arr4.push("me");
-console.log(arr4);
