@@ -8,30 +8,31 @@ var b = [4,5,6];
 var mergeArrays = function (arrayA,arrayB) {
   var aCurrentPosition = 0;
   var bCurrentPosition = 0;
+  var length = arrayA.length + arrayB.length;
+
   if((arrayA.length === 0) || (arrayB.length === 0)) {
     console.log("Error: One or More Arrays are Empty");
     return;
   }
-  for(var i = 0; i < arrayB.length; i++) {
+  for(var i = 0; i < length; i++) {
       if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] < arrayA[aCurrentPosition+1])) {
-        a[aCurrentPosition+1].push = arrayB[bCurrentPosition];
-        console.log(arrayA);
+        arrayA.push(arrayB.shift());
+        bCurrentPosition++;
       }
-      else if ((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] > arrayA[aCurrentPosition+1])) {
+      else if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] > arrayA[aCurrentPosition+1])) {
         aCurrentPosition++;
         console.log("Incrementing Array A: " + arrayA);
       }
-      else if ((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayA[aCurrentPosition+1] === undefined)) {
-        arrayA[aCurrentPosition+1].push = arrayB[bCurrentPosition]; //cannot push on a value that is undefined.. take a look into this issue.
-      console.log(arrayA);
+      else if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayA[aCurrentPosition+1] === undefined)) {
+        arrayA.push(arrayB.shift()); //cannot push on a value that is undefined.. take a look into this issue.
+        bCurrentPosition++;
       }
-      else
-      bCurrentPosition++;
   }
-  console.log("Array length: " + arrayA.length);
+  console.log("Array length: " + arrayA.length +": " + arrayA);
+  console.log("Array length: " + arrayB.length +": " + arrayB);
 };
 
 mergeArrays(a,b);
 
-//debug this, there may be an issue with how I'm pushing to arrays.
-//I think the logic should work.
+//We're left with the last value in Array B. Is this due to the incrementing of the position?
+//Troubleshoot this!
