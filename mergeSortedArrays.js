@@ -86,4 +86,4 @@ var recursiveMergeArrays = function (arrayA,arrayB,counter) {
   return arrayA;
 };
 
-mergeArrays(a,b,0);
+recursiveMergeArrays(a,b,0);
