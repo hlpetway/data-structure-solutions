@@ -5,7 +5,7 @@
 // Find the minimum element.You may assume no duplicate exists in the array.
 // The right most will always be less than the left most or it is not a rotated sorted array. Verify this first.
 // Then go through each value in the array, loop or recusively.
-// If the following value is less than the current value then we have found the original beginning.
+// If the following value is less than the current value then we have found the origina beginning.
 // Check that the next value to the right of this value is larger, if the value is larger then we have what we are looking for.
 // If the value smaller it is not a sorted, rotated array, throw error.
 
@@ -56,7 +56,7 @@ var recursiveLookForMinimum = function (numberSet, currentPosition) {
   else if(numberSet[currentPosition] <= numberSet[numberSetLength]) {
     console.log("Error: The array is not a rotated and sorted array.");
   }
-  else if((numberSet[currentPosition] > numberSet[currentPosition+1]) && (numberSet[currentPosition+1] < numberSet[currentPosition+2])) {
+  if((numberSet[currentPosition] > numberSet[currentPosition+1]) && (numberSet[currentPosition+1] < numberSet[currentPosition+2])) {
     console.log("The minimum value is: " + numberSet[currentPosition+1]);
     return numberSet[currentPosition+1];
   }
