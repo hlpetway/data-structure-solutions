@@ -2,6 +2,8 @@
 // Given two sorted integer arrays A and B, merge B into A as one sorted array.
 // You may assume that A has enough space to hold additional elements from B.
 // The number of elements initialized in A and B are m and n respectively.
+//
+// BONUS: What if there are repeated intergers?
 // ----------------------------------------------------------------------------------
 //
 // ** Iterative Solution ***
@@ -19,11 +21,13 @@ var mergeArrays = function (arrayA,arrayB) {
     return;
   }
   for(var i = 0; i < length; i++) {
-      if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] < arrayA[aCurrentPosition+1])) {
+      if(((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] < arrayA[aCurrentPosition+1])) ||
+      ((arrayB[bCurrentPosition] === arrayA[aCurrentPosition]))) {
         arrayA.splice(aCurrentPosition+1, 0, arrayB.shift());
         console.log("Inserting into Array A: " + arrayA);
       }
-      else if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] > arrayA[aCurrentPosition+1])) {
+      else if(((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] > arrayA[aCurrentPosition+1])) ||
+      (arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition+1] === arrayA[aCurrentPosition+1])) {
         aCurrentPosition++;
       }
       else if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayA[aCurrentPosition+1] === undefined)) {
@@ -41,9 +45,13 @@ var mergeArrays = function (arrayA,arrayB) {
 //This also works if the arrays are sorted but are not complete with consecutive integers.
 
 var c = [1,3,4];
-var d = [2,5,6];
+var d = [2,2,5,6];
 
-//mergeArrays(c, d);
+mergeArrays(c, d);
+
+//need to debug, the loop is breaking after moving the first 2. I'm adding logic to handle repeat values.
+
+
 
 
 // ----------------------------------------------------------------------------------
@@ -78,4 +86,4 @@ var recursiveMergeArrays = function (arrayA,arrayB,counter) {
   return arrayA;
 };
 
-mergeArrays(a,b,0);
+//mergeArrays(a,b,0);
