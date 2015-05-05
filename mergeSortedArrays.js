@@ -64,11 +64,11 @@ var recursiveMergeArrays = function (arrayA,arrayB,counterA,counterB) {
   var bCurrentPosition = counterB;
   var length = arrayA.length * arrayB.length;
 
-  if((arrayA.length === 0) || (arrayB.length === 0)) {
-    console.log("Error: One or More Arrays are Empty");
-    return;
+  if(arrayB.length === 0) {
+    console.log("Done! " + arrayA);
+    return arrayA;
   }
-  if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] < arrayA[aCurrentPosition+1])) {
+  else if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] < arrayA[aCurrentPosition+1])) {
       arrayA.splice(aCurrentPosition+1, 0, arrayB.shift());
       console.log("Inserting into Array A: " + arrayA);
   }
@@ -81,7 +81,7 @@ var recursiveMergeArrays = function (arrayA,arrayB,counterA,counterB) {
   }
   else
     console.log("Array length: " + arrayA.length +": " + arrayA);
-    console.log("Array length: " + arrayB.length +": " + arrayB);
+
     return recursiveMergeArrays(a,b,counterA+1,0);
 };
 
