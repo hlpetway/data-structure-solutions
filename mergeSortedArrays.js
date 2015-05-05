@@ -34,5 +34,5 @@ var mergeArrays = function (arrayA,arrayB) {
 
 mergeArrays(a,b);
 
-//We're left with the last value in Array B. Is this due to the incrementing of the position?
+//We're left with the last value in Array B. I think this is due to the incrementing of the position.
 //Troubleshoot this!

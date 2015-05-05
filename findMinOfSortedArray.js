@@ -1,16 +1,12 @@
 // This is an example of a solution to the following problem:
 // Suppose a sorted array is rotated at some pivot unknown to you beforehand.
 // (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+
 // Find the minimum element.You may assume no duplicate exists in the array.
-
-//Ex. [4,5,6,7,0,1,2]
-
-// LOGIC:
 // The right most will always be less than the left most or it is not a rotated sorted array. Verify this first.
 // Then go through each value in the array, loop or recusively.
-// If the following value is less than the current value then we have found the true beginning.
-// Check that the next value to the right of this value is larger,
-// if the value is larger then we have what we are looking for.
+// If the following value is less than the current value then we have found the original beginning.
+// Check that the next value to the right of this value is larger, if the value is larger then we have what we are looking for.
 // If the value smaller it is not a sorted, rotated array, throw error.
 
 //** Iterative Solution **
