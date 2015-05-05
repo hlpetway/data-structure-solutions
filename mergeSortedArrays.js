@@ -40,7 +40,7 @@ var mergeArrays = function (arrayA,arrayB) {
   return arrayA;
 };
 
-//mergeArrays(a,b);
+mergeArrays(a,b);
 
 // This also works if the arrays are sorted
 // but are not comprised of only consecutive integers or have repeat values!
@@ -48,10 +48,11 @@ var mergeArrays = function (arrayA,arrayB) {
 var c = [1,3,4];
 var d = [2,2,5,6];
 
-//mergeArrays(c, d);
+mergeArrays(c, d);
 
 
-
+var a = [1,2,3];
+var b = [4,5,6];
 
 
 // ----------------------------------------------------------------------------------
@@ -59,9 +60,9 @@ var d = [2,2,5,6];
 // ** Recursive Solution **
 //
 
-var recursiveMergeArrays = function (arrayA,arrayB,counterA,counterB) {
+var recursiveMergeArrays = function (arrayA,arrayB,counterA) {
   var aCurrentPosition = counterA;
-  var bCurrentPosition = counterB;
+  var bCurrentPosition = 0;
   var length = arrayA.length * arrayB.length;
 
   if(arrayB.length === 0) {
@@ -73,16 +74,13 @@ var recursiveMergeArrays = function (arrayA,arrayB,counterA,counterB) {
       console.log("Inserting into Array A: " + arrayA);
   }
   else if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] > arrayA[aCurrentPosition+1])) {
-      aCurrentPosition++;
+    return recursiveMergeArrays(a,b,counterA+1);
   }
   else if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayA[aCurrentPosition+1] === undefined)) {
       arrayA.push(arrayB.shift());
       console.log("Pushing to end of Array A: " + arrayA);
   }
-  else
-    console.log("Array length: " + arrayA.length +": " + arrayA);
-
-    return recursiveMergeArrays(a,b,counterA+1,0);
+  return recursiveMergeArrays(a,b,0);
 };
 
-recursiveMergeArrays(a,b,0,0);
+recursiveMergeArrays(a,b,0);

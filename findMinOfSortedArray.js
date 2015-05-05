@@ -56,7 +56,7 @@ var recursiveLookForMinimum = function (numberSet, currentPosition) {
   else if(numberSet[currentPosition] <= numberSet[numberSetLength]) {
     console.log("Error: The array is not a rotated and sorted array.");
   }
-  if((numberSet[currentPosition] > numberSet[currentPosition+1]) && (numberSet[currentPosition+1] < numberSet[currentPosition+2])) {
+  else if((numberSet[currentPosition] > numberSet[currentPosition+1]) && (numberSet[currentPosition+1] < numberSet[currentPosition+2])) {
     console.log("The minimum value is: " + numberSet[currentPosition+1]);
     return numberSet[currentPosition+1];
   }
