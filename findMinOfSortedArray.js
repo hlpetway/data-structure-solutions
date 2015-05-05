@@ -7,12 +7,11 @@
 
 // LOGIC:
 // The right most will always be less than the left most or it is not a rotated sorted array. Verify this first.
-// Then go through each value in the array, loop or recusively
-// if the following value is less than the current value then we have found the true beginning.
+// Then go through each value in the array, loop or recusively.
+// If the following value is less than the current value then we have found the true beginning.
 // Check that the next value to the right of this value is larger,
-// if larger then we have what we are looking for
-// if equal then we have a duplicate and check the next value again
-// if larger it is not a sorted, rotated array.
+// if the value is larger then we have what we are looking for.
+// If the value smaller it is not a sorted, rotated array, throw error.
 
 //** Iterative Solution **
 var rotatedSortedArray = [4,5,6,7,0,1,2];
