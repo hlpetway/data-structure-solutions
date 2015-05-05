@@ -27,7 +27,7 @@ var mergeArrays = function (arrayA,arrayB) {
         console.log("Inserting into Array A: " + arrayA);
       }
       else if(((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] > arrayA[aCurrentPosition+1])) ||
-      (arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition+1] === arrayA[aCurrentPosition+1])) {
+      (arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayB[bCurrentPosition] === arrayA[aCurrentPosition+1])) {
         aCurrentPosition++;
       }
       else if((arrayB[bCurrentPosition] > arrayA[aCurrentPosition]) && (arrayA[aCurrentPosition+1] === undefined)) {
@@ -40,16 +40,16 @@ var mergeArrays = function (arrayA,arrayB) {
   return arrayA;
 };
 
-//mergeArrays(a,b);
+mergeArrays(a,b);
 
-//This also works if the arrays are sorted but are not complete with consecutive integers.
+// This also works if the arrays are sorted
+// but are not comprised of only consecutive integers or have repeat values!
 
 var c = [1,3,4];
 var d = [2,2,5,6];
 
 mergeArrays(c, d);
 
-//need to debug, the loop is breaking after moving the first 2. I'm adding logic to handle repeat values.
 
 
 
@@ -86,4 +86,4 @@ var recursiveMergeArrays = function (arrayA,arrayB,counter) {
   return arrayA;
 };
 
-//mergeArrays(a,b,0);
+mergeArrays(a,b,0);
