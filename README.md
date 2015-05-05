@@ -1,1 +1,1 @@
-##These are JavaScript examples of common data structures.
+##These are examples and solutions of common data structures and problems in JavaScript.
