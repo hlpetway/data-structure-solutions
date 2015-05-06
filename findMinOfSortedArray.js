@@ -37,11 +37,11 @@ var lookForMinimum = function (numberSet) {
 };
 
 nonRotatedSortedArray = [1,2,3,4,5,6];
-NonRoatedNonSortedArray = [6,2,1,4,5,3];
+nonRoatedNonSortedArray = [6,2,1,4,5,3];
 
 lookForMinimum(rotatedSortedArray);      // prints and returns The minimum value is: 0
 lookForMinimum(nonRotatedSortedArray);   // prints and returns "Error: The array is not a rotated and sorted array." Because not rotated.
-lookForMinimum(NonRoatedNonSortedArray); // prints and returns "Error: The array is not a rotated and sorted array." Because not sorted or rotated.
+lookForMinimum(nonRoatedNonSortedArray); // prints and returns "Error: The array is not a rotated and sorted array." Because not sorted or rotated.
 
 
 // ** Recursive Solution **
@@ -56,7 +56,7 @@ var recursiveLookForMinimum = function (numberSet, currentPosition) {
   else if(numberSet[currentPosition] <= numberSet[numberSetLength]) {
     console.log("Error: The array is not a rotated and sorted array.");
   }
-  if((numberSet[currentPosition] > numberSet[currentPosition+1]) && (numberSet[currentPosition+1] < numberSet[currentPosition+2])) {
+  else if((numberSet[currentPosition] > numberSet[currentPosition+1]) && (numberSet[currentPosition+1] < numberSet[currentPosition+2])) {
     console.log("The minimum value is: " + numberSet[currentPosition+1]);
     return numberSet[currentPosition+1];
   }
@@ -69,4 +69,4 @@ var recursiveLookForMinimum = function (numberSet, currentPosition) {
 };
 
 recursiveLookForMinimum(rotatedSortedArray, 0);      // prints and returns The minimum value is: 0
-recursiveLookForMinimum(NonRoatedNonSortedArray, 0); // prints and returns "Error: The array is not a rotated and sorted array." Because not rotated.
+recursiveLookForMinimum(nonRoatedNonSortedArray, 0); // prints and returns "Error: The array is not a rotated and sorted array." Because not rotated.
