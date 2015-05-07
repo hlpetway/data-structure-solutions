@@ -6,21 +6,42 @@
 
 var numbers = [1,2,3,4,5,6,7];
 
-var rotateArray = function (setOfNumbers,k,n) {
-  positionsRotated = k;
-  sizeOfArray = n;
+var rotateArray = function (numberSet,k,n) {
+  var positionsRotated = k;
+  var sizeOfArray = n-1;
 
-  if((k > 0) && (setOfNumbers.length > 0)){
-    //We want to loop through that k number of times, each time popping from the back and unshifting to the front
+  if((positionsRotated > 0) && (numberSet.length > 0)){
+    // We want to loop through that k number of times,
+    // each time popping from the back and unshifting to the front
 
-    for(var i = 0; i < k; i++){
-      numberToRotate = setOfNumbers.splice((n-1),1);
-      setOfNumbers.unshift(numberToRotate[0]);
+    for(var i = 0; i < positionsRotated; i++){
+      var numberToRotate = numberSet.splice((sizeOfArray),1);
+      numberSet.unshift(numberToRotate[0]);
     }
-    return setOfNumbers;
+    return numberSet;
   }
   else
   console.log("The Array is empty or Amount Rotated is Zero.");
 };
 
 rotateArray(numbers,4,7);
+
+
+//-------------------------------------------------------------------
+// ** Recursive Solution **
+
+var numbers = [1,2,3,4,5,6,7];
+
+var recursiveRotateArray = function (numberSet,k,n) {
+  var counter = k;
+  var sizeOfArray = n;
+
+  if(counter > 0){
+    var numberToRotate = numberSet.splice((sizeOfArray-1),1);
+    numberSet.unshift(numberToRotate[0]);
+    return recursiveRotateArray(numberSet,counter-1,7);
+  }
+  return numberSet;
+
+};
+recursiveRotateArray(numbers,3,7);
