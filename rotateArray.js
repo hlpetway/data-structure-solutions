@@ -16,9 +16,7 @@ var rotateArray = function (setOfNumbers,k,n) {
     for(var i = 0; i < k; i++){
       numberToRotate = setOfNumbers.splice((n-1),1);
       setOfNumbers.unshift(numberToRotate[0]);
-      console.log(setOfNumbers);
     }
-    console.log(setOfNumbers);
     return setOfNumbers;
   }
   else
