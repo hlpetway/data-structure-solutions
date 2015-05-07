@@ -12,7 +12,7 @@ var rotateArray = function (numberSet,k,n) {
 
   if((positionsRotated > 0) && (numberSet.length > 0)){
     // We want to loop through that k number of times,
-    // each time popping from the back and unshifting to the front
+    // each time splicing from the back and unshifting to the front
 
     for(var i = 0; i < positionsRotated; i++){
       var numberToRotate = numberSet.splice((sizeOfArray),1);
