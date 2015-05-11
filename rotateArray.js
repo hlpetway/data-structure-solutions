@@ -40,9 +40,10 @@ var recursiveRotateArray = function (numberSet,k,n) {
   if(counter > 0){
     var numberToRotate = numberSet.splice((sizeOfArray-1),1);
     numberSet.unshift(numberToRotate[0]);
-    return recursiveRotateArray(numberSet,counter-1,7);
+    counter--;
+    return recursiveRotateArray(numberSet,counter,7);
   }
   return numberSet;
 
 };
-recursiveRotateArray(numbers,3,7);
+recursiveRotateArray(numbers,4,7);
