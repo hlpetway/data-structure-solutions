@@ -3,6 +3,7 @@
 // I will later compare Recursive-Memoize to Iteration
 
 // ** Recursive with Memoize
+/*
 var fibonacci = (function() {
   var memo = {};
 
@@ -26,31 +27,35 @@ var fibonacci = (function() {
   return f;
 })();
 
-console.log(fibonacci(f, 10));
+//console.log(fibonacci(f, 10));
+*/
 
 
 // --------------------------------------------------
 // Recursive Without Memoize
 //
 
-var fibonaci = (function () {
+var fibonaciSimple = function (length,counter) {
   var fib = [];
   fib[0] = 0;
   fib[1] = 1;
-  counter = 2;
+  if (counter < length){
   fib[counter] = fib[counter-2] + fib[counter-1];
   counter++;
-  return fibonaci;
-})();
+  console.log(counter);
+  return fibonaciSimple(length,counter);
+  }
+  else
+  return fib;
+};
 
-console.log(fibonaci);
-
+console.log(fibonaciSimple(6,2));
 
 // --------------------------------------------------
 // ** Iterative Solution **
 // using an immediately invoked function to store the sequence in variable
 //
-
+/*
 var fibonaci = (function () {
   var fib = [];
   fib[0] = 0;
@@ -63,3 +68,4 @@ var fibonaci = (function () {
 })();
 
 console.log(fibonaci);
+*/
