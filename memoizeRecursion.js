@@ -1,9 +1,12 @@
 // Solving Fibonaci Recursively using Memoize
+//
 // I'm going to compare the recursive and recursive with memoize solutions and their performance.
-// I will later compare Recursive-Memoize to Iteration
-// http://www.sitepoint.com/implementing-memoization-in-javascript/
+// http://jsperf.com/fibonaccimemoizecomparison
+// You can see that the performance difference is huge as you compute larger and larger numbers.
+//
+// RESOURCE: http://www.sitepoint.com/implementing-memoization-in-javascript/
 // ----------------------------------------------------------
-// ** Recursive with Memoize
+// ** Recursive with Memoize Using Imm. Inv. Function & Closure
 // Returns just the single value n
 
 var fibonacci = (function (  ) {
@@ -19,7 +22,9 @@ var fibonacci = (function (  ) {
     return fibMemo;
 }( ));
 
-//console.log(fibonacci(10));
+fibonacci(10);
+
+
 
 // --------------------------------------------------
 // ** Recursive Without Memoize **
@@ -34,12 +39,15 @@ function fibSimple(x) {
         return fibSimple(x-1)+fibSimple(x-2);
     }
 }
-console.log(fibSimple(10));
+fibSimple(10);
+
+
 
 // --------------------------------------------------
-// ** Iterative Solution with Memoize **
+// ** Iterative Fibonacci Series with Memoize **
 // using an immediately invoked function to store the sequence in variable
-//
+// http://jsperf.com/fibonaccirecursivevsiterative
+// Recursive Wins By A Lot. TODO: Compute the Series with Recursion
 
 var fibonaciIterative = (function () {
   var fibIt = [];
@@ -52,4 +60,4 @@ var fibonaciIterative = (function () {
   return fibIt;
 })();
 
-//console.log(fibonaciIterative);
+console.log(fibonaciIterative);
