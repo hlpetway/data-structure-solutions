@@ -1,39 +1,28 @@
 // Solving Fibonaci Recursively using Memoize
 // I'm going to compare the recursive and recursive with memoize solutions and their performance.
 // I will later compare Recursive-Memoize to Iteration
-
+// ----------------------------------------------------------
 // ** Recursive with Memoize
-/*
-var fibonacci = (function() {
-  var memo = {};
+// Returns just the single value n
 
-  function f(n) {
-    var value;
+var fibonacci = (function (  ) {
+    var memo = [0, 1];
+    var fib = function (n) {
+        var result = memo[n];
+        if (typeof result !== 'number') {
+            result = fib(n-1) + fib(n-2);
+            memo[n] = result;
+        }
+        return result;
+    };
+    return fib;
+}( ));
 
-    if (n in memo) {
-      value = memo[n];
-    } else {
-      if (n === 0 || n === 1)
-        value = n;
-      else
-        value = f(n - 1) + f(n - 2);
-
-      memo[n] = value;
-    }
-
-    return value;
-  }
-
-  return f;
-})();
-
-//console.log(fibonacci(f, 10));
-*/
-
+console.log(fibonacci(5));
 
 // --------------------------------------------------
-// Recursive Without Memoize
-//
+// ** Recursive Without Memoize **
+// TODO: Why does this only print the first two values?
 
 var fibonaciSimple = function (length,counter) {
   var fib = [];
@@ -42,7 +31,6 @@ var fibonaciSimple = function (length,counter) {
   if (counter < length){
   fib[counter] = fib[counter-2] + fib[counter-1];
   counter++;
-  console.log(counter);
   return fibonaciSimple(length,counter);
   }
   else
@@ -55,8 +43,8 @@ console.log(fibonaciSimple(6,2));
 // ** Iterative Solution **
 // using an immediately invoked function to store the sequence in variable
 //
-/*
-var fibonaci = (function () {
+
+var fibonaciIterative = (function () {
   var fib = [];
   fib[0] = 0;
   fib[1] = 1;
@@ -67,5 +55,4 @@ var fibonaci = (function () {
   return fib;
 })();
 
-console.log(fibonaci);
-*/
+console.log(fibonaciIterative);
