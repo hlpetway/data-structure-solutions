@@ -7,8 +7,8 @@
 // RESOURCE: http://www.sitepoint.com/implementing-memoization-in-javascript/
 // ----------------------------------------------------------
 // ** Recursive with Memoize Solution: Find Nth Number in Fib Series **
-// using an immediately invoked function to store the sequence in variable
-// Returns just the single value n
+// I'm using an immediately invoked function to store the sequence in variable.
+// Returns just the single value n.
 
 var fibonacci = (function (  ) {
     var memo = [0, 1];
@@ -28,8 +28,8 @@ fibonacci(10);
 
 
 // --------------------------------------------------
-// ** Recursive Without MemoizeSolution: Find Nth Number in Fib Series **
-// Returns just the single value n
+// ** Recursive Without Memoize Solution: Find Nth Number in Fib Series **
+// Returns just the single value n.
 
 function fibSimple(x) {
     if (x === 0) {
@@ -46,7 +46,7 @@ fibSimple(10);
 
 // --------------------------------------------------
 // ** Iterative Fibonacci Series with Memoize **
-// using an immediately invoked function to store the sequence in variable
+// I'm using an immediately invoked function to store the sequence in variable.
 // http://jsperf.com/fibonaccirecursivevsiterative/2
 //
 
@@ -67,7 +67,8 @@ console.log(fibonaciIterative);
 
 // --------------------------------------------------
 // ** Recursive Fibonacci Series with Memoize **
-// using an immediately invoked function to store the sequence in variable
+// I'm using an immediately invoked function to store the sequence in variable,
+// and to keep variables out of global namespace.
 // http://jsperf.com/fibonaccirecursivevsiterative/2
 // BLISTERINGLY FAST! WHOA!
 
