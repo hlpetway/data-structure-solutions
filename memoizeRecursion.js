@@ -47,7 +47,7 @@ fibSimple(10);
 // ** Iterative Fibonacci Series with Memoize **
 // using an immediately invoked function to store the sequence in variable
 // http://jsperf.com/fibonaccirecursivevsiterative
-// Recursive Wins By A Lot. TODO: Compute the Series with Recursion
+//
 
 var fibonaciIterative = (function () {
   var fibIt = [];
@@ -61,3 +61,33 @@ var fibonaciIterative = (function () {
 })();
 
 console.log(fibonaciIterative);
+
+
+
+// --------------------------------------------------
+// ** Recursive Fibonacci Series with Memoize **
+// using an immediately invoked function to store the sequence in variable
+// http://jsperf.com/fibonaccirecursivevsiterative
+// BLISTERINGLY FAST! WHOA!
+
+var fibonaciSeriesImmInvoked = (function () {
+
+  var fibArray = [];
+  fibArray[0] = 0;
+  fibArray[1] = 1;
+
+  var fibFunct = function (counter, length){
+    if (counter <= length){
+      fibArray[counter] = fibArray[counter-2] + fibArray[counter-1];
+      counter++;
+      return fibonaciSeriesImmInvoked(counter,length);
+    }
+    else
+      return(fibArray);
+
+  };
+  return fibFunct;
+
+})();
+
+console.log(fibonaciSeriesImmInvoked(2,10));
