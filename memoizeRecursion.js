@@ -6,7 +6,8 @@
 //
 // RESOURCE: http://www.sitepoint.com/implementing-memoization-in-javascript/
 // ----------------------------------------------------------
-// ** Recursive with Memoize Using Imm. Inv. Function & Closure
+// ** Recursive with Memoize Solution: Find Nth Number in Fib Series
+// using an immediately invoked function to store the sequence in variable
 // Returns just the single value n
 
 var fibonacci = (function (  ) {
