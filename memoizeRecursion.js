@@ -1,6 +1,6 @@
 // Solving Fibonacci Recursively using Memoize
 //
-// I'm going to compare the recursive,iterative and memoize solutions' performance.
+// I'm going to compare the recursive, iterative and memoize solutions' performance.
 // http://jsperf.com/fibonaccimemoizecomparison
 // The performance difference is huge as you compute larger and larger numbers.
 //
