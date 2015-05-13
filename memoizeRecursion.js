@@ -1,12 +1,12 @@
-// Solving Fibonaci Recursively using Memoize
+// Solving Fibonacci Recursively using Memoize
 //
-// I'm going to compare the recursive and recursive with memoize solutions and their performance.
+// I'm going to compare the recursive,iterative and memoize solutions' performance.
 // http://jsperf.com/fibonaccimemoizecomparison
-// You can see that the performance difference is huge as you compute larger and larger numbers.
+// The performance difference is huge as you compute larger and larger numbers.
 //
 // RESOURCE: http://www.sitepoint.com/implementing-memoization-in-javascript/
 // ----------------------------------------------------------
-// ** Recursive with Memoize Solution: Find Nth Number in Fib Series
+// ** Recursive with Memoize Solution: Find Nth Number in Fib Series **
 // using an immediately invoked function to store the sequence in variable
 // Returns just the single value n
 
@@ -28,7 +28,7 @@ fibonacci(10);
 
 
 // --------------------------------------------------
-// ** Recursive Without Memoize **
+// ** Recursive Without MemoizeSolution: Find Nth Number in Fib Series **
 // Returns just the single value n
 
 function fibSimple(x) {
