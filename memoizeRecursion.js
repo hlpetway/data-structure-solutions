@@ -46,7 +46,7 @@ fibSimple(10);
 // --------------------------------------------------
 // ** Iterative Fibonacci Series with Memoize **
 // using an immediately invoked function to store the sequence in variable
-// http://jsperf.com/fibonaccirecursivevsiterative
+// http://jsperf.com/fibonaccirecursivevsiterative/2
 //
 
 var fibonaciIterative = (function () {
@@ -67,7 +67,7 @@ console.log(fibonaciIterative);
 // --------------------------------------------------
 // ** Recursive Fibonacci Series with Memoize **
 // using an immediately invoked function to store the sequence in variable
-// http://jsperf.com/fibonaccirecursivevsiterative
+// http://jsperf.com/fibonaccirecursivevsiterative/2
 // BLISTERINGLY FAST! WHOA!
 
 var fibonaciSeriesImmInvoked = (function () {
