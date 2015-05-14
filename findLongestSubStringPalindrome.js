@@ -40,11 +40,29 @@ var helper = function(string,begin,end){
   return string.substring(begin+1,end);
 };
 
-longestPalindrome(exampleString);
+//longestPalindrome(exampleString);
 
 //----------------------------------------------------------------------------------------
-// Manacher's Solution
+// TODO: Manacher's Solution
+// First insert a character betweeen each letter and then we test each position to see how big the
+// palindrome centered around that point is and store that number in an array P.
+// Then search the array for the center with the largest palindrome centered around it.
 //
+
+var prepString = function (string){
+  if(string.length === 0){
+    return "^$";
+  }
+  var funkyString = "^";
+  for(var i = 0; i<string.length; i++){
+    funkyString += "#" + string.substring(i,i+1);
+    console.log(funkyString);
+  }
+  funkyString += "#$";
+  return funkyString;
+};
+
+var newStringToTest = prepString(test);
 
 var manLongestPalindrome = function (string) {
 
