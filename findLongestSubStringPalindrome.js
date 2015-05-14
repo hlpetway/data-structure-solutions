@@ -40,7 +40,7 @@ var helper = function(string,begin,end){
   return string.substring(begin+1,end);
 };
 
-//longestPalindrome(exampleString);
+longestPalindrome(exampleString);
 
 //----------------------------------------------------------------------------------------
 // TODO: Manacher's Solution
@@ -50,11 +50,11 @@ var helper = function(string,begin,end){
 //
 
 var prepString = function (string){
-  if(string.length === 0){
+  if (string.length === 0){
     return "^$";
   }
   var funkyString = "^";
-  for(var i = 0; i<string.length; i++){
+  for (var i = 0; i<string.length; i++){
     funkyString += "#" + string.substring(i,i+1);
     console.log(funkyString);
   }
@@ -64,6 +64,36 @@ var prepString = function (string){
 
 var newStringToTest = prepString(test);
 
-var manLongestPalindrome = function (string) {
+var manLongestPalindrome = function (preppedString) {
+  var positions = [];
+  var begin = 0;
+  var end = 0;
+  for (var i=1; i<preppedString.length; i++){
+    var i_mirror = 2*begin-1;
 
+    P[i] = (R > i) ? min(R-i, P[i_mirror]) : 0;
+
+    //Attempt to expand palindrome centered at i
+    while (preppedString[i + 1 + P[i]] === preppedString[i - 1 - P[i]]){
+      P[i]++;
+    }
+
+    //If palindrome cetnered at i expand past end,
+    // adjust center based on expanded palindrome
+    if (i + P[i] > end){
+      begin = i;
+      end = i + P[i];
+    }
+  }
+
+  // Find the maximum element in P.
+  var maxLen = 0;
+  var centerIndex = 0;
+  for (var j = 1; j < preppedString.length; j++){
+    if (P[j] > maxLen) {
+      maxLen = P[j];
+      centerIndex = j;
+    }
+  }
+  return preppedString.substring((centerIndex - 1 - maxLen)/2, maxLen);
 };
