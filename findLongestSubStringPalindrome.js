@@ -1,8 +1,10 @@
 //Finding the longest palindromic substring is a classic problem of coding interview.
 
 // ** Finding Longest SubString Palindrome of a given String
-// This solution handles odd and even strings gracefully.
+// This solution handles odd and even strings gracefully in O(N^2) Time and O(1) Space
 // RESOURCE: http://stevekrenzel.com/articles/longest-palnidrome
+// -- Manacher's Algo Solves this in O(N):
+// http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html
 
 var exampleString = "dabcba";
 
@@ -39,3 +41,11 @@ var helper = function(string,begin,end){
 };
 
 longestPalindrome(exampleString);
+
+//----------------------------------------------------------------------------------------
+// Manacher's Solution
+//
+
+var manLongestPalindrome = function (string) {
+
+};
