@@ -13,9 +13,7 @@ var longestPalindrome = function (string) {
   else if(string.length === 1){
     return exampleString;
   }
-
   var longest = string.substring(0,1);
-
   for(var i = 0; i< string.length; i++){
     var temp = helper(string, i, i);
     if(temp.length > longest.length){
@@ -25,6 +23,9 @@ var longestPalindrome = function (string) {
     if(temp.length > longest.length){
       longest = temp;
     }
+  }
+  if (longest.length === 1){
+    return "There is no palidrome substring in: " + string;
   }
   return longest;
 };
