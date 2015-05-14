@@ -43,11 +43,15 @@ var helper = function(string,begin,end){
 longestPalindrome(exampleString);
 
 //----------------------------------------------------------------------------------------
-// Manacher's Solution
+//
+// ** Manacher's Solution **
 // First insert a character betweeen each letter and then we test each position to see how big the
 // palindrome centered around that point is and store that number in an array P.
 // Then search the array for the center with the largest palindrome centered around it.
-// TODO: troubleshoot this
+// RESOURCE: http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html
+
+// TODO: troubleshoot this! It prints our prepped string and then hangs
+
 
 var prepString = function (string){
   if (string.length === 0){
