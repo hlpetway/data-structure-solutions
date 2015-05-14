@@ -3,8 +3,7 @@
 // ** Finding Longest SubString Palindrome of a given String
 // This solution handles odd and even strings gracefully in O(N^2) Time and O(1) Space
 // RESOURCE: http://stevekrenzel.com/articles/longest-palnidrome
-// -- Manacher's Algo Solves this in O(N):
-// http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html
+ 
 
 var exampleString = "dabcba";
 
@@ -45,6 +44,7 @@ longestPalindrome(exampleString);
 //----------------------------------------------------------------------------------------
 //
 // ** Manacher's Solution **
+// Solves this in O(N):
 // First insert a character betweeen each letter and then we test each position to see how big the
 // palindrome centered around that point is and store that number in an array P.
 // Then search the array for the center with the largest palindrome centered around it.
