@@ -10,6 +10,7 @@
 // No "shorting"—you must buy before you sell. (at least 1 minute must pass).
 
 //------------------------------------------------------------------------------------------
+//This loops through the entire array once. Time & Space Complexity O(N)
 
 var bestProfitYesterday = function(array){
   var highest = 0;
