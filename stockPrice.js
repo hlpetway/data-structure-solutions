@@ -21,21 +21,18 @@ var bestProfitYesterday = function(array){
   }
   if(array[0] > array[1]){
     lowest = array[1];
-    highest = array[0];
   }
   for(var i = 2; i < array.length; i++){
     if(array[i] < lowest){
       lowest = array[i];
     }
-    if(array[i] > highest){
+    if(array[i] > highest && array.indexOf(lowest) < array[i]){
       highest = array[i];
     }
   }
-  if(array.indexOf(lowest) < array.indexOf(highest)){
-    var bestProfit = highest - lowest;
-    console.log("Higest possible profit yesterday: " + bestProfit);
-  }
+  var bestProfit = highest - lowest;
+  console.log("Higest possible profit yesterday: " + bestProfit);
 };
 
-var stockPricesYesterday = [400,200,300,600, 400, 500, 300,200];
+var stockPricesYesterday = [1000,400,200,300,600,400,500,300,200];
 bestProfitYesterday(stockPricesYesterday);
