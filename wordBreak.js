@@ -34,7 +34,7 @@ wordBreak(exampleString, exampleDict);
 //----------------------------------------------------------------
 // Find out what indexOf() runs in for Big O
 //
-/*
+
 var wordBreakIndexOf = function(string,dict){
   var containsWord = false;
   for(var i = 0; i< dict.length; i++){
@@ -52,4 +52,3 @@ exampleString = "codeleet";
 exampleDict = ["leet","code"];
 
 wordBreakIndexOf(exampleString, exampleDict);
-*/
