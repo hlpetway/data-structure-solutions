@@ -6,7 +6,7 @@
 //
 // ** Word Break **
 //----------------------------------------------------------------
-// TODO: There's an issue with my nested for loop syntax. Fix this!
+// I think this is O(N*M)
 
 var wordBreak = function(string,dict){
   var containsWord = false;
@@ -33,6 +33,7 @@ wordBreak(exampleString, exampleDict);
 // ** Word Break Using IndexOf() **
 //----------------------------------------------------------------
 // Find out what indexOf() runs in for Big O
+// It searches the entire string per dict[i]. I think O(N+M)
 //
 
 var wordBreakIndexOf = function(string,dict){
