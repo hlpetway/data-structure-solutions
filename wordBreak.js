@@ -12,18 +12,14 @@ var wordBreak = function(string,dict){
   var containsWord = false;
   for(var i = 0; i< dict.length; i++){
     var wordLength = dict[i].length;
-    for( var j = 0; j < string.length; j + wordLength){
+    for( var j = 0; j < string.length; j++){
       if(string.substring(j,j + wordLength) === dict[i]){
-        console.log("I got here");
+        console.log(string.substring(j,j + wordLength));
         containsWord = true;
-        return containsWord;
-      }
-      else{
-        return "No Match";
       }
     }
   }
-  if(containsWord){
+  if(containsWord === true){
     console.log("There was a match!");
   }
 };
@@ -38,7 +34,7 @@ wordBreak(exampleString, exampleDict);
 //----------------------------------------------------------------
 // Find out what indexOf() runs in for Big O
 //
-
+/*
 var wordBreakIndexOf = function(string,dict){
   var containsWord = false;
   for(var i = 0; i< dict.length; i++){
@@ -56,3 +52,4 @@ exampleString = "codeleet";
 exampleDict = ["leet","code"];
 
 wordBreakIndexOf(exampleString, exampleDict);
+*/
