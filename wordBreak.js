@@ -6,29 +6,53 @@
 //
 // ** Word Break **
 //----------------------------------------------------------------
+// TODO: There's an issue with my nested for loop syntax. Fix this!
 
 var wordBreak = function(string,dict){
-  wordsInString = [];
+  var containsWord = false;
   for(var i = 0; i< dict.length; i++){
-    wordLength = dict[i].length;
-    stringSize %= string.length/wordLength;
-    for( var j = 0; j < stringSize; j+wordLength){
-      if(string.substring(j,wordLength) === dict[i]){
-        wordsInString[i[j]] = true;
-        break;
+    var wordLength = dict[i].length;
+    for( var j = 0; j < string.length; j + wordLength){
+      if(string.substring(j,j + wordLength) === dict[i]){
+        console.log("I got here");
+        containsWord = true;
+        return containsWord;
       }
-      wordsInString[i[j]] = false;
+      else{
+        return "No Match";
+      }
     }
-    for(var k = 0; k<wordsInString.length; k++){
+  }
+  if(containsWord){
+    console.log("There was a match!");
+  }
+};
 
-      // TODO:
-      // This is answering if any of the words in the string are words in the dictionary.
-      // The question is can the string be segemented into a sequence of the dict words.
-      // I need to rethink this approach.
-      // Maybe compare each of the dictionary words to the string by substrings of the same size.
-      // Iterate through the dict and if all words show up then return true.
-      // or track state of true false in a variable and return that if at least one dict word
-      // matches a substring.
+exampleString = "codeleet";
+exampleDict = ["leet","code"];
+
+wordBreak(exampleString, exampleDict);
+
+
+// ** Word Break Using IndexOf() **
+//----------------------------------------------------------------
+// Find out what indexOf() runs in for Big O
+//
+
+var wordBreakIndexOf = function(string,dict){
+  var containsWord = false;
+  for(var i = 0; i< dict.length; i++){
+    if(string.indexOf(dict[i]) === -1){
+      console.log("No Match");
+    }
+    else{
+      containsWord = true;
+      console.log("There was a match for: " + dict[i]);
     }
   }
 };
+
+exampleString = "codeleet";
+exampleDict = ["leet","code"];
+
+wordBreakIndexOf(exampleString, exampleDict);
