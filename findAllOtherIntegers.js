@@ -19,12 +19,17 @@
 var findAllOtherIntegers = function (array){
   var newArray = [];
   var multiply = "*";
-  var listToMultiply ='';
+  var listToMultiply ="";
   for(var i = 0; i < array.length; i++){
-    for(var j = 1; j < array.length; j++){
-      listToMultiply.concat(array[j]);
-    }
+      var newString = array[i];
+      listToMultiply = listToMultiply.concat(newString,multiply);
     newArray[i] = listToMultiply;
   }
     return newArray;
 };
+
+var example = [1, 7, 3, 4];
+
+console.log(findAllOtherIntegers(example));
+
+// TODO: It's looping through, need just other numbers minus our current location.
