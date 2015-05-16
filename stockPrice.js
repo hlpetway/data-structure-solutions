@@ -13,26 +13,18 @@
 //This loops through the entire array once. Time & Space Complexity O(N)
 
 var bestProfitYesterday = function(array){
-  var highest = 0;
-  var lowest = 0;
-  if(array[0] < array [1]){
-    lowest = array[0];
-    highest = array[1];
+  var bestProfit = array[1]-array[0];
+  var lowest = array[0];
+  for(var i = 0; i < array.length; i++){
+    var potential_profit = array[i] - lowest;
+    bestProfit = Math.max(bestProfit, potential_profit);
+    lowest = Math.min(lowest, array[i]);
   }
-  if(array[0] > array[1]){
-    lowest = array[1];
-  }
-  for(var i = 2; i < array.length; i++){
-    if(array[i] < lowest){
-      lowest = array[i];
-    }
-    if(array[i] > highest && array.indexOf(lowest) < array[i]){
-      highest = array[i];
-    }
-  }
-  var bestProfit = highest - lowest;
   console.log("Higest possible profit yesterday: " + bestProfit);
+  return bestProfit;
 };
 
-var stockPricesYesterday = [1000,400,200,300,600,400,500,300,200];
+var stockPricesYesterday = [1000,400,200,300,600,2000,100,400,500,300,200];
 bestProfitYesterday(stockPricesYesterday);
+
+//We've got an issue with 200 being skipped. Because of 1000. Fix this!
