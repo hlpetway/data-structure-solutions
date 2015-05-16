@@ -1,4 +1,3 @@
-// Writing coding interview questions hasn't made me rich. Maybe trading Apple stocks will.
 // I have an array stock_prices_yesterday where:
 
 // The indices are the time in minutes past trade opening time, which was 9:30am local time.
@@ -10,10 +9,10 @@
 // No "shorting"—you must buy before you sell. (at least 1 minute must pass).
 
 //------------------------------------------------------------------------------------------
-//This loops through the entire array once. Time & Space Complexity O(N)
+//This loops through the entire array once. Time O(N) & Space O(1) Complexity
 
 var bestProfitYesterday = function(array){
-  var bestProfit = array[1]-array[0];
+  var bestProfit = array[1] - array[0];
   var lowest = array[0];
   for(var i = 0; i < array.length; i++){
     var potential_profit = array[i] - lowest;
