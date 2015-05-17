@@ -15,14 +15,19 @@
 // Do not use division in your solution.
 //
 // -----------------------------------------------------------------------------
-
+//This solution is O(N^2)
+//
 var findAllOtherIntegers = function (array){
   var newArray = [];
   var multiply = "*";
-  var listToMultiply ="";
   for(var i = 0; i < array.length; i++){
-      var newString = array[i];
-      listToMultiply = listToMultiply.concat(newString,multiply);
+    var listToMultiply = 1;
+    for(var j = 0; j <array.length; j++){
+      if(j!==i){
+        var num = array[j];
+        listToMultiply *= num;
+      }
+    }
     newArray[i] = listToMultiply;
   }
     return newArray;
@@ -31,5 +36,3 @@ var findAllOtherIntegers = function (array){
 var example = [1, 7, 3, 4];
 
 console.log(findAllOtherIntegers(example));
-
-// TODO: It's looping through, need just other numbers minus our current location.
