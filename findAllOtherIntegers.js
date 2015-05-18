@@ -54,10 +54,10 @@ var get_product_of_all_ints_except_index = function(arrayOfInt){
     productsOfAllIntegers[i] = product;
     product *= arrayOfInt[i];
   }
-  for(i = arrayOfInt.length; i > 0; i--){
-    productsOfAllIntegers[i] *= product;
-    product *= arrayOfInt[i];
-    console.log(productsOfAllIntegers[i]);
+  product = 1;
+  for(var j = arrayOfInt.length-1; j >= 0; j--){
+    productsOfAllIntegers[j] *= product;
+    product *= arrayOfInt[j];                   //There's a problem here..?
   }
   return productsOfAllIntegers;
 };
