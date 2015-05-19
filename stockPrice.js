@@ -1,3 +1,5 @@
+// ** Interview Cake ***
+
 // I have an array stock_prices_yesterday where:
 
 // The indices are the time in minutes past trade opening time, which was 9:30am local time.
@@ -11,19 +13,21 @@
 //------------------------------------------------------------------------------------------
 //This loops through the entire array once. Time O(N) & Space O(1) Complexity
 
-var bestProfitYesterday = function(array){
-  var bestProfit = array[1] - array[0];
-  var lowest = array[0];
-  for(var i = 0; i < array.length; i++){
-    var potential_profit = array[i] - lowest;
+var bestProfitYesterday = function(stockPrices){
+  if(stockPrices.length < 2){
+    console.log("A profit requires at least two prices.");
+  }
+  var bestProfit = stockPrices[1] - stockPrices[0];
+  var lowest = stockPrices[0];
+  for(var i = 1; i < stockPrices.length; i++){
+    var potential_profit = stockPrices[i] - lowest;
     bestProfit = Math.max(bestProfit, potential_profit);
-    lowest = Math.min(lowest, array[i]);
+    lowest = Math.min(lowest, stockPrices[i]);
   }
   console.log("Higest possible profit yesterday: " + bestProfit);
   return bestProfit;
 };
 
-var stockPricesYesterday = [1000,400,200,300,600,2000,100,400,500,300,200];
-bestProfitYesterday(stockPricesYesterday);
 
-//We've got an issue with 200 being skipped. Because of 1000. Fix this!
+var stockPricesYesterday = [1000,400,200,300,600,2000,100,400,500,300,200];
+bestProfitYesterday(stockPricesYesterday); //returns 1800
