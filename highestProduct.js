@@ -8,28 +8,25 @@ var test = [1,3,5,2,6,7];
 
 var findHighestProduct = function (testArray){
 
-var highest = 0;
-var lowest = testArray[0];
-var highestProdOfTwo = 0;
-var lowestProdOfTwo = testArray[0]*testArray[1];
-var highestProdOfThree = 0;
+var highest = Math.max(testArray[0],testArray[1]);
+var lowest = Math.min(testArray[0],testArray[1]);
+var highestProdOfTwo = (testArray[0] * testArray[1]);
+var lowestProdOfTwo = (testArray[0] * testArray[1]);
+var highestProdOfThree = (testArray[0] * testArray[1] * testArray[2]);
 
-  for( var i = 0; i < testArray.length; i++) {
-    if((testArray[i]*testArray[i+1]) > highestProdOfTwo){
-      highestProdOfTwo = (testArray[i]*testArray[i+1]);
-    }
-    if((testArray[i]*testArray[i+1]) < lowestProdOfTwo){
-      lowestProdOfTwo = (testArray[i]*testArray[i+1]);
-    }
-    if((testArray[i]*highestProdOfTwo) > highestProdOfThree){
-      highestProdOfThree = (testArray[i]*highestProdOfTwo);
-    }
-    if(testArray[i] < lowest){
-      lowest = testArray[i];
-    }
-    if(testArray[i] > highest){
-      highest = testArray[i];
-    }
+  for( var i = 2; i < testArray.length; i++) {
+    var current = testArray[i];
+
+    highestProdOfThree = Math.max(highestProdOfThree,current*highestProdOfTwo,current*lowestProdOfTwo);
+
+    highestProdOfTwo = Math.max(highestProdOfTwo,current*highest,current*lowest);
+
+    lowestProdOfTwo = Math.min(lowestProdOfTwo,current*highest,current*lowest);
+
+    lowest = Math.min(current,lowest);
+
+    highest = Math.max(current,highest);
+
   }
   return highestProdOfThree;
 
