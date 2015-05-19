@@ -6,7 +6,6 @@
 
 var test = [1,3,5,2,6,7];
 
-/*
 var findHighestProduct = function (testArray){
 
 var highest = Math.max(testArray[0],testArray[1]);
@@ -34,9 +33,10 @@ var highestProdOfThree = (testArray[0] * testArray[1] * testArray[2]);
 };
 
 console.log(findHighestProduct(test));
-*/
+
 //------------------------------------------------------------------------------
-// TODO: Solve with Merge Sort
+// ** Solve with Merge Sort **
+//
 // Sort the array and then multiply the three greatest intergers
 // We can do it in O(n log n) time with merge sort I believe.
 
@@ -53,7 +53,6 @@ var merge = function (left, right){
     }
   }
   return result.concat(left.slice(i_left)).concat(right.slice(i_right));
-
 };
 
 var mergeSort = function (arrayToMerge) {
@@ -63,18 +62,16 @@ var mergeSort = function (arrayToMerge) {
   var middle = Math.floor(arrayToMerge.length / 2);
   var left = arrayToMerge.slice(0, middle);
   var right = arrayToMerge.slice(middle);
-
   return merge(mergeSort(left), mergeSort(right));
-
 };
 
 var findHighestProduct = function (testArray){
   var sortedArray = mergeSort(testArray);
-  var highestProductOfThree = 0;
+  var highestProductOfThree = 1;
   for(var i = sortedArray.length-1; i > sortedArray.length-4; i--){
-    highestProductOfThree *= sortedArray[i];
+    highestProductOfThree = highestProductOfThree * sortedArray[i];
   }
-  console.log(sortedArray);
+  return highestProductOfThree;
 };
 
-findHighestProduct(test);
+console.log(findHighestProduct(test));
