@@ -9,8 +9,8 @@ var test = [1,3,5,2,6,7];
 var findHighestProduct = function (arrayOfInts){
   for( var i = 0; i < arrayOfInts.length; i++) {
     var newArray = [];
-    //start our merge sort here, is this where we use our temp variable
-    //and push a value here and compare it to the rest of the array?
+    // TODO: Start our merge sort here, is this where we use our temp variable
+    // and push a value here and compare it to the rest of the array?
   }
 
 };
