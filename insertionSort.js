@@ -1,6 +1,8 @@
 // ** Insertion Sort **
 // Faster on a small data set than Merge, but is much slower as n grows very large.
+// Translated from psuedo code in Introduction to Algorithms by Cormen, et al.
 // Complexity of O(N^2)
+
 
 var insertionSort = function (arrayToSort){
   for(var j = 1; j < arrayToSort.length; j++){
