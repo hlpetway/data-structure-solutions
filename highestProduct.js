@@ -38,7 +38,7 @@ console.log(findHighestProduct(test));
 // ** Solve with Merge Sort **
 //
 // Sort the array and then multiply the three greatest intergers
-// We can do it in O(n log n) time with merge sort I believe.
+// We can do it in O(n) time with merge sort I believe.
 
 var merge = function (left, right){
   var result = [];
