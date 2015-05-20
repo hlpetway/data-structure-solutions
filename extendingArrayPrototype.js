@@ -1,33 +1,9 @@
-//
-//** Quick Sort **
-//
-//Javascript's own .sort() is a quick sort
+// ** Extending Array Prototype **
+// adding a method on the Array prototype
+// so you can call this method on any array.
+// RESOURCE:
+// http://stackoverflow.com/questions/7837456/comparing-two-arrays-in-javascript
 //------------------------------------------------------------------------------
-//
-
-test = [2,4,1,6,3,5];
-
-var quickSorts = function (nums) {
-  if(nums.length === 0){
-    return [];
-  }
-  var left = [];
-  var right = [];
-  var pivot = nums[0];
-  //go through each element and compare to our pivot
-  for(var i = 1; i < nums.length; i++){
-    if(nums[i] < pivot){
-      left.push(nums[i]);
-    } else {
-      right.push(nums[i]);
-    }
-  }
-  return quickSorts(left).concat(pivot, quickSorts(right));
-};
-
-console.log(quickSorts(test));
-
-console.log(test.sort());
 
 Array.prototype.equals = function (array) {
     // if the other array is a falsy value, return
@@ -53,6 +29,9 @@ Array.prototype.equals = function (array) {
     return true;
 };
 
-if(quickSorts(test).equals(test.sort())){
-  console.log("Both functions are equal");
+aTest = [2,4,1,6,3,5];
+bTest = [2,4,1,6,3,5];
+
+if(aTest.equals(bTest)){
+  console.log("The Arrays are Equal");
 }
