@@ -2,10 +2,12 @@
 //** Quick Sort **
 //
 //Javascript's own .sort() is a quick sort
+// O(n log n) - Average  O(n^2) - Worst
 //------------------------------------------------------------------------------
-//
+// I tested this against merge sort in jsperfcom:
+// http://jsperf.com/mergesort-vs-quicksort
 
-test = [2,4,1,6,3,5];
+var test = [2,4,1,6,3,5];
 
 var quickSorts = function (nums) {
   if(nums.length === 0){
@@ -25,6 +27,22 @@ var quickSorts = function (nums) {
   return quickSorts(left).concat(pivot, quickSorts(right));
 };
 
-console.log(quickSorts(test)); // returns [1,2,3,4,5,6]
+quickSorts(test); // returns [1,2,3,4,5,6]
+test.sort();   // returns [1,2,3,4,5,6]
 
-console.log(test.sort());   // returns [1,2,3,4,5,6]
+var generateHugeDataSet = function (){
+  var largeArray = [];
+for(var i = 0; i < 1000000; i++){
+  largeArray[i] = Math.floor(Math.random() * 1000000);
+}
+return largeArray;
+};
+
+console.time("sort");
+console.log(quickSorts(generateHugeDataSet()));
+console.timeEnd("sort");
+
+// 43-45ms for 10,000 integers (Just a few miliseconds slower than Merge Sort)
+// 88-95ms for 20,000 integers.
+// 410-430ms for 100,000 integers.
+// 4545 ms for 1,000,000 integers. (Takes 605 ms longer at this point.)
