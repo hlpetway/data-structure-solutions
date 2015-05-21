@@ -3,7 +3,7 @@
 // O(n log n) - Worst
 //
 // I tested this against Quick Sort in JSPerf.com: http://jsperf.com/mergesort-vs-quicksort
-// Merge Sort Won! As the data set approaches the millions the difference between Merge and Quick Sort widens.
+// Quick Sort beats Merge Sort Across the Board - maybe due to lack of tail recursion
 // Resource: http://www.nczonline.net/blog/2012/10/02/computer-science-and-javascript-merge-sort/
 // ----------------------------------------------------------------------------
 
@@ -37,8 +37,8 @@ var mergeSort = function (items){
 
 var generateHugeDataSet = function (){
   var largeArray = [];
-for(var i = 0; i < 1000000; i++){
-  largeArray[i] = Math.floor(Math.random() * 1000000);
+for(var i = 0; i < 2000000; i++){
+  largeArray[i] = Math.floor(Math.random() * 2000000);
 }
 return largeArray;
 };
@@ -48,9 +48,5 @@ console.log(mergeSort(generateHugeDataSet()));
 console.timeEnd("sort");
 
 
-//TODO: RE Test against a true Quick Sort.
-
-// Quick Sort is faster when data set is only 20-50 integers.
-// 37-40 ms to run 10,000 integers (this is 5-10 ms faster than quick sort)
-// 360-380 ms to run 100,000 integers! (The gap continues to widen.)
-// 3940 ms to run 1,000,000 integers! (It's 605 ms faster at this point.)
+// 3940 ms to run 1,000,000 integers. (It's still slower than quick sort at this point.)
+// 7960 ms to run 2,000,000 integers. (Almost 2 seconds slower 1813 ms.)

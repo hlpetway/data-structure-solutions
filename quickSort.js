@@ -1,9 +1,10 @@
 //
 // ** Quick Sort - With Partition and Swap Function **
 //
-//Javascript's own .sort() is a quick sort
+// Javascript's own .sort() is a quick sort
 // O(n log n) - Average  O(n^2) - Worst
-//
+// Quick Sort Beats Merge Sort!
+// Performance Testing: http://jsperf.com/mergesort-vs-quicksort
 // RESOURCE: http://www.nczonline.net/blog/2012/11/27/computer-science-in-javascript-quicksort/
 //------------------------------------------------------------------------------
 
@@ -52,4 +53,22 @@ function quickSort(items, left, right) {
 
 var result = quickSort(items, 0, items.length - 1);
 
+var generateHugeDataSet = function (){
+  var largeArray = [];
+for(var i = 0; i < 2000000; i++){
+  largeArray[i] = Math.floor(Math.random() * 2000000);
+}
+return largeArray;
+};
+
+var testTwo = generateHugeDataSet();
+
+console.time("sort");
+console.log(quickSort(testTwo, 0, testTwo.length - 1));
+console.timeEnd("sort");
+
+
 console.log(result); // returns [2,3,4,5,6,9]
+
+// 3356 ms to run 1,000,000 integers! (It's 584 ms faster at this point.)
+// 6147 ms to run 2,000,000 integers  (It's 1813 ms faster at this point, almost 2 seconds.)
