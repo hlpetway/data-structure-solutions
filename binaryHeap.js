@@ -1,7 +1,7 @@
 //  ** Binary Heap - Min First
 //
-//RESOURCE: Eloquentjavascript.net
-//
+// RESOURCE: http://eloquentjavascript.net/1st_edition/appendix2.html
+// TODO: Create a simpler implementation
 //------------------------------------------------------------------------------
 
 function BinaryHeap(scoreFunction){
@@ -127,7 +127,10 @@ var heap = new BinaryHeap(identity);
           heap.push(number);
         });
 
-heap.remove(2);
+[1, 2].forEach(
+        function(number) {
+          heap.remove(number);
+        });
 
 while (heap.size() > 0)
   console.log(heap.pop());
