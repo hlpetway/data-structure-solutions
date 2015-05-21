@@ -47,6 +47,9 @@ console.time("sort");
 console.log(mergeSort(generateHugeDataSet()));
 console.timeEnd("sort");
 
+
+//TODO: RE Test against a true Quick Sort.
+
 // Quick Sort is faster when data set is only 20-50 integers.
 // 37-40 ms to run 10,000 integers (this is 5-10 ms faster than quick sort)
 // 360-380 ms to run 100,000 integers! (The gap continues to widen.)
