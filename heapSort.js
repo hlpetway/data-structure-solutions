@@ -9,8 +9,6 @@ var maxHeapify = function (nums, index, heapsize) {
   var largest = index;
   if(left < heapsize && nums[left] > nums[index]){
     largest = left;
-  } else {
-    largest = index;
   }
   if(right < heapsize && nums[right] > nums[largest]){
     largest = right;
@@ -19,7 +17,7 @@ var maxHeapify = function (nums, index, heapsize) {
     var temp = nums[index];
     nums[index] = nums[largest];
     nums[largest] = temp;
-    maxHeapify (nums, largest, heapsize);
+    maxHeapify(nums, largest, heapsize);
   }
 };
 
@@ -44,7 +42,5 @@ var heapSort = function (nums){
   return nums;
 };
 
-var test = [5,1,6,4,2,7,3];
+var test = [5,1,3,4,2];
 console.log(heapSort(test));
-
-//This does not work... trouble shoot

@@ -1,3 +1,9 @@
+
+
+
+
+
+
 var heapSort = (function () {
     function heapify(array, index, heapSize) {
         var left = 2 * index + 1,
@@ -40,5 +46,5 @@ var heapSort = (function () {
     };
 }());
 
-var test = [5,1,6,4,2,7,3];
+var test = [5,1,3,4,2];
 console.log(heapSort(test));
