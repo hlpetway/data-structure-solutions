@@ -3,29 +3,29 @@
 // I used Intro to Algorithms to help design this solution.
 //------------------------------------------------------------------------------
 
-var maxHeapify = function (nums, i, heapsize) {
-  var lNode = 2 * i + 1;
-  var rNode = 2 * i + 2;
-  var largest = i;
-  if(lNode < nums.heapsize && nums[lNode] > nums[i]){
-    largest = lNode;
+var maxHeapify = function (nums, index, heapsize) {
+  var left = 2 * index + 1;
+  var right = 2 * index + 2;
+  var largest = index;
+  if(left < heapsize && nums[left] > nums[index]){
+    largest = left;
   } else {
-    largest = i;
+    largest = index;
   }
-  if(rNode < nums.heapsize && nums[rNode] > nums[largest]){
-    largest = rNode;
+  if(right < heapsize && nums[right] > nums[largest]){
+    largest = right;
   }
-  if(largest !== i){
-    var temp = nums[i];
-    nums[i] = nums[largest];
+  if(largest !== index){
+    var temp = nums[index];
+    nums[index] = nums[largest];
     nums[largest] = temp;
-    maxHeapify (nums, i, nums.length);
+    maxHeapify (nums, largest, heapsize);
   }
 };
 
 var buildMaxHeap = function (nums){
   var heapsize = nums.length;
-  for(var i = Math.floor(nums.length/2); i >= 0; i--){
+  for(var i = Math.floor(nums.length / 2); i >= 0; i--){
     maxHeapify(nums, i, heapsize);
   }
   return nums;
@@ -34,16 +34,17 @@ var buildMaxHeap = function (nums){
 var heapSort = function (nums){
   var heapsize = nums.length;
   buildMaxHeap(nums);
-  for(var i = nums.length-1; i>=0; i--){
+  for(var i = nums.length - 1; i > 0; i--){
     var temp = nums[0];
     nums[0] = nums[i];
     nums[i] = temp;
+    heapsize--;
     maxHeapify(nums, 0, heapsize);
   }
   return nums;
 };
 
-var test = [10,3,8,1,6,9,5,4,2,7];
+var test = [5,1,6,4,2,7,3];
 console.log(heapSort(test));
 
 //This does not work... trouble shoot
