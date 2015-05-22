@@ -3,7 +3,7 @@
 // I used Intro to Algorithms to help design this solution.
 //------------------------------------------------------------------------------
 
-var maxHeapify = function (nums, index, heapsize) {
+var heapify = function (nums, index, heapsize) {
   var left = 2 * index + 1;
   var right = 2 * index + 2;
   var largest = index;
@@ -17,27 +17,27 @@ var maxHeapify = function (nums, index, heapsize) {
     var temp = nums[index];
     nums[index] = nums[largest];
     nums[largest] = temp;
-    maxHeapify(nums, largest, heapsize);
+    heapify(nums, largest, heapsize);
   }
 };
 
-var buildMaxHeap = function (nums){
+var buildHeap = function (nums){
   var heapsize = nums.length;
   for(var i = Math.floor(nums.length / 2); i >= 0; i--){
-    maxHeapify(nums, i, heapsize);
+    heapify(nums, i, heapsize);
   }
   return nums;
 };
 
 var heapSort = function (nums){
   var heapsize = nums.length;
-  buildMaxHeap(nums);
+  buildHeap(nums);
   for(var i = nums.length - 1; i > 0; i--){
     var temp = nums[0];
     nums[0] = nums[i];
     nums[i] = temp;
     heapsize--;
-    maxHeapify(nums, 0, heapsize);
+    heapify(nums, 0, heapsize);
   }
   return nums;
 };
