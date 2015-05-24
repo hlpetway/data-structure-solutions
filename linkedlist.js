@@ -73,7 +73,7 @@ LList.prototype.isPalindrome = function() {
     if( fast !== null){
         slow = slow.next;
     }
-    while(slow.next !== null){
+    while(stack.length >0){
         var top = stack.pop();
         if(slow.data !== top){
             return false;
