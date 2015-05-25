@@ -1,22 +1,32 @@
 // This is an example of a HashTable with a simple Hash Function
 // and a Linked List for collisions. Values are distributed more
 // uniformly in a hash table if the size of the table is a prime number.
+//
+// ** Hash Table with Linked List for Collisions **
+//
 
-"use strict";
-
-var Node = function(value) {
+var Node = function(key,value) {
+  this.key = key;
   this.value = value;
   this.next = null;
 };
 
 var LinkedList = function() {
-  this.head = null;
-  this.tail = null;
-  this.add = function(value) {
-    var node = new Node(value);
-    if (this.head === null) { this.head = node; }
-    if (this.tail !== null) { this.tail.next = node; }
-    this.tail = node;
+  this.head = new Node('head');
+  this.add = function(key,value) {
+    var node = new Node(key,value);
+    var curNode = this.head;
+    while(curNode.next !== null) {
+      curNode = curNode.next;
+    }
+    curNode.next = node;
+  };
+  this.find = function(key){
+    var curNode = this.head;
+    while(curNode.key !== key && curNode.next !== null){
+      curNode = curNode.next;
+    }
+    return curNode.value;
   };
 };
 
@@ -26,22 +36,28 @@ var HashTable = function(max) {
   for (var i = 0; i < max; ++i) {
     this.storage[i] = new LinkedList();
   }
-  this.hash = function(value) {
+  this.hash = function(key) {
     var sum = 0;
-    for (var i = 0; i < value.length; ++i) {
-      sum += value[i].charCodeAt() - 97;
+    for (var i = 0; i < key.length; ++i) {
+      sum += key[i].charCodeAt() - 97;
     }
     return sum % this.max;
   };
-  this.add = function(value) {
-    var index = this.hash(value);
-    this.storage[index].add(value);
+  this.addValue = function(key,value) {
+    var index = this.hash(key);
+    this.storage[index].add(key,value);
+  };
+  this.getValue = function(key) {
+    var index = this.hash(key);
+    return this.storage[index].find(key);
   };
 };
 
 var hash = new HashTable(5);
-hash.add("I");
-hash.add("would");
-hash.add("like");
-hash.add("a");
-hash.add("coffee");
+hash.addValue("I");
+hash.addValue("would");
+hash.addValue("like");
+hash.addValue("a");
+hash.addValue("coffee");
+
+hash.getValue('I');
