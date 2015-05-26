@@ -13,24 +13,22 @@ var Node = function(key,value) {
 
 var LinkedList = function() {
   this.head = new Node('head');
-};
-
-LinkedList.prototype.add = function(key,value) {
+  this.add = function(key,value) {
     var node = new Node(key,value);
     var curNode = this.head;
     while(curNode.next !== null) {
       curNode = curNode.next;
     }
     curNode.next = node;
-};
-
-LinkedList.prototype.find = function(key){
+  };
+  this.find = function(key){
     var curNode = this.head;
     while(curNode.key !== key && curNode.next !== null){
       curNode = curNode.next;
     }
     return curNode.value;
   };
+};
 
 var HashTable = function(max) {
   this.max = max;

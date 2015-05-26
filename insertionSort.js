@@ -10,7 +10,7 @@ var insertionSort = function (arrayToSort){
     var i = j - 1;
     while((i >= 0) && (arrayToSort[i] > key)){
       arrayToSort[i+1] = arrayToSort[i];
-      i = i - 1;
+      i--;
       arrayToSort[i+1] = key;
     }
   }
